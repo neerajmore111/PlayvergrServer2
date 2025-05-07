@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-
+var cors = require('cors')
 // if (process.env.NODE_ENV !== "production") {
 //   require("dotenv").config("./.env");
 // }
@@ -24,6 +24,7 @@ app.use(function (req, res, next) {
   next();
 });
 app.use(express.json());
+app.use(cors())
 app.use("/api/user", userRouter);
 app.use("/api/movie", movieRouter);
 app.use("/api/categories-movies", categoriesMoviesRouter);
